@@ -13,7 +13,6 @@
 		878A77FA27ED6D66008733C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 878A77F827ED6D66008733C6 /* Main.storyboard */; };
 		878A77FC27ED6D6B008733C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 878A77FB27ED6D6B008733C6 /* Assets.xcassets */; };
 		878A77FF27ED6D6B008733C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 878A77FD27ED6D6B008733C6 /* LaunchScreen.storyboard */; };
-		878A780727ED6EAC008733C6 /* Resnet50.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 878A780627ED6EAC008733C6 /* Resnet50.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +24,6 @@
 		878A77FB27ED6D6B008733C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		878A77FE27ED6D6B008733C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		878A780027ED6D6B008733C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		878A780627ED6EAC008733C6 /* Resnet50.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Resnet50.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +59,6 @@
 				878A77F227ED6D66008733C6 /* AppDelegate.swift */,
 				878A77F427ED6D66008733C6 /* SceneDelegate.swift */,
 				878A77F627ED6D66008733C6 /* ViewController.swift */,
-				878A780627ED6EAC008733C6 /* Resnet50.mlmodel */,
 				878A77F827ED6D66008733C6 /* Main.storyboard */,
 				878A77FB27ED6D6B008733C6 /* Assets.xcassets */,
 				878A77FD27ED6D6B008733C6 /* LaunchScreen.storyboard */,
@@ -143,7 +140,6 @@
 			files = (
 				878A77F727ED6D66008733C6 /* ViewController.swift in Sources */,
 				878A77F327ED6D66008733C6 /* AppDelegate.swift in Sources */,
-				878A780727ED6EAC008733C6 /* Resnet50.mlmodel in Sources */,
 				878A77F527ED6D66008733C6 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -296,9 +292,11 @@
 				DEVELOPMENT_TEAM = 375AJZ9MFR;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "PRESUS-Barcode-Prototype/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need camera access";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -325,9 +323,11 @@
 				DEVELOPMENT_TEAM = 375AJZ9MFR;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "PRESUS-Barcode-Prototype/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need camera access";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;

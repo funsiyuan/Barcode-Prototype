@@ -11,6 +11,10 @@ import Vision
 
 final class ViewController: UIViewController {
     
+    @IBOutlet weak var label1: UILabel!
+    @IBOutlet weak var label2: UILabel!
+    @IBOutlet weak var label3: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCamera()
@@ -41,22 +45,20 @@ extension ViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         
         guard let pixelBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
-        
-        guard let model = try? VNCoreMLModel(for: Resnet50(configuration: .init()).model) else { return }
-        
-        let request = VNCoreMLRequest(model: model) { (finishedReq, error) in
-            guard let results = finishedReq.results as? [VNClassificationObservation] else { return }
-            guard let firstObservation = results.first else { return }
+                
+        let barcodeRequest = VNDetectBarcodesRequest { request, error in
+            guard let result = request.results as? [VNBarcodeObservation] else { return }
             
-            print(firstObservation.identifier, firstObservation.confidence.description)
+            DispatchQueue.main.sync {
+                self.label1.text = "バーコードスキャン結果:"
+                self.label2.text = result.first?.payloadStringValue?.debugDescription
+                self.label3.text = result.first?.symbology.rawValue
+            }
             
-            //            DispatchQueue.main.async {
-            //                self.itemLabel.text = firstObservation.identifier
-            //                self.confidenceLabel.text = firstObservation.confidence.description
-            //            }
         }
+        barcodeRequest.symbologies = [.qr, .gs1DataBar, .gs1DataBarLimited, .gs1DataBarExpanded, .code128, .ean13]
         
-        try? VNImageRequestHandler(cvPixelBuffer: pixelBuffer, options: [:]).perform([request])
+        try? VNImageRequestHandler(cvPixelBuffer: pixelBuffer, options: [:]).perform([barcodeRequest])
         
     }
 }
