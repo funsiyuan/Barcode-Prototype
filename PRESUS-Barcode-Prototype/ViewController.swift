@@ -54,12 +54,12 @@ extension ViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
         let barcodeRequest = VNDetectBarcodesRequest { request, error in
             
             // MARK: - Result is here!!
-            guard let result = request.results as? [VNBarcodeObservation] else { return }
-            if result.isEmpty { return }
+            guard let results = request.results as? [VNBarcodeObservation] else { return }
+            if results.isEmpty { return }
             
-            if result.first?.payloadStringValue?.debugDescription == self.currentBarcode { return }
+            if results.first?.payloadStringValue?.debugDescription == self.currentBarcode { return }
             
-            self.currentBarcode = result.first?.payloadStringValue?.debugDescription ?? ""
+            self.currentBarcode = results.first?.payloadStringValue?.debugDescription ?? ""
             
             let generator = UIImpactFeedbackGenerator(style: .heavy)
             generator.prepare()
@@ -67,8 +67,8 @@ extension ViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
             
             DispatchQueue.main.sync {
                 self.appleyBackgroundAnimation()
-                self.label2.text = result.first?.payloadStringValue?.debugDescription
-                self.label3.text = result.first?.symbology.rawValue
+                self.label2.text = results.first?.payloadStringValue?.debugDescription
+                self.label3.text = results.first?.symbology.rawValue
             }
             
         }
