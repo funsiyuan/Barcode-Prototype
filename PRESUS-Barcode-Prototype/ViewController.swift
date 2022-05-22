@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  PRESUS-Barcode-Prototype
 //
-//  Created by 李　思遠 on 2022/03/25.
+//  Created by SIYUAN LI on 2022/03/25.
 //
 
 import UIKit
@@ -21,7 +21,7 @@ final class ViewController: UIViewController {
         super.viewDidLoad()
         setupCamera()
         
-        label1.text = "バーコードスキャン結果:"
+        label1.text = Scan result:"
     }
     
     // MARK: - Setup.
