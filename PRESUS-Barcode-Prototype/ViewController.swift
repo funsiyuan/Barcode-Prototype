@@ -21,7 +21,7 @@ final class ViewController: UIViewController {
         super.viewDidLoad()
         setupCamera()
         
-        label1.text = Scan result:"
+        label1.text = "Scan result:"
     }
     
     // MARK: - Setup.
