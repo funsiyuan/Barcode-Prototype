@@ -17,6 +17,8 @@ final class ViewController: UIViewController {
     
     private var currentBarcode: String = ""
     
+    let helper = BarcodeHelper()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCamera()
@@ -51,30 +53,31 @@ extension ViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
         
         guard let pixelBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
                 
-        let barcodeRequest = VNDetectBarcodesRequest { request, error in
-            
-            // MARK: - Result is here!!
-            guard let results = request.results as? [VNBarcodeObservation] else { return }
-            if results.isEmpty { return }
-            
-            if results.first?.payloadStringValue?.debugDescription == self.currentBarcode { return }
-            
-            self.currentBarcode = results.first?.payloadStringValue?.debugDescription ?? ""
-            
-            let generator = UIImpactFeedbackGenerator(style: .heavy)
-            generator.prepare()
-            generator.impactOccurred()
-            
-            DispatchQueue.main.sync {
-                self.appleyBackgroundAnimation()
-                self.label2.text = results.first?.payloadStringValue?.debugDescription
-                self.label3.text = results.first?.symbology.rawValue
-            }
-            
-        }
-        barcodeRequest.symbologies = [.ean13, .code128, .gs1DataBarExpanded, .gs1DataBarLimited, .gs1DataBar, .dataMatrix, .aztec, .codabar, .code39, .ean13, .code39FullASCII, .code93, .code93i, .microQR, .microPDF417]
+//        let barcodeRequest = VNDetectBarcodesRequest { request, error in
+//
+//            // MARK: - Result is here!!
+//            guard let results = request.results as? [VNBarcodeObservation] else { return }
+//            if results.isEmpty { return }
+//            
+//            if results.first?.payloadStringValue?.debugDescription == self.currentBarcode { return }
+//
+//            self.currentBarcode = results.first?.payloadStringValue?.debugDescription ?? ""
+//
+//            let generator = UIImpactFeedbackGenerator(style: .heavy)
+//            generator.prepare()
+//            generator.impactOccurred()
+//
+//            DispatchQueue.main.sync {
+//                self.appleyBackgroundAnimation()
+//                self.label2.text = results.first?.payloadStringValue?.debugDescription
+//                self.label3.text = results.first?.symbology.rawValue
+//            }
+//
+//        }
+//        barcodeRequest.symbologies = [.ean13, .code128, .gs1DataBarExpanded, .gs1DataBarLimited, .gs1DataBar, .dataMatrix, .aztec, .codabar, .code39, .ean13, .code39FullASCII, .code93, .code93i, .microQR, .microPDF417]
         
-        try? VNImageRequestHandler(cvPixelBuffer: pixelBuffer, options: [:]).perform([barcodeRequest])
+//        try? VNImageRequestHandler(cvPixelBuffer: pixelBuffer, options: [:]).perform([barcodeRequest])
+        try? VNImageRequestHandler(cvPixelBuffer: pixelBuffer, options: [:]).perform(helper.createVisionRequests())
         
     }
     

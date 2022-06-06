@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		870F8E57283B8C6900D05077 /* BarcodeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870F8E56283B8C6900D05077 /* BarcodeHelper.swift */; };
 		878A77F327ED6D66008733C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878A77F227ED6D66008733C6 /* AppDelegate.swift */; };
 		878A77F527ED6D66008733C6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878A77F427ED6D66008733C6 /* SceneDelegate.swift */; };
 		878A77F727ED6D66008733C6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878A77F627ED6D66008733C6 /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		870F8E56283B8C6900D05077 /* BarcodeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeHelper.swift; sourceTree = "<group>"; };
 		878A77EF27ED6D66008733C6 /* PRESUS-Barcode-Prototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PRESUS-Barcode-Prototype.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		878A77F227ED6D66008733C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		878A77F427ED6D66008733C6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				878A77F227ED6D66008733C6 /* AppDelegate.swift */,
 				878A77F427ED6D66008733C6 /* SceneDelegate.swift */,
 				878A77F627ED6D66008733C6 /* ViewController.swift */,
+				870F8E56283B8C6900D05077 /* BarcodeHelper.swift */,
 				878A77F827ED6D66008733C6 /* Main.storyboard */,
 				878A77FB27ED6D6B008733C6 /* Assets.xcassets */,
 				878A77FD27ED6D6B008733C6 /* LaunchScreen.storyboard */,
@@ -149,6 +152,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				878A77F727ED6D66008733C6 /* ViewController.swift in Sources */,
+				870F8E57283B8C6900D05077 /* BarcodeHelper.swift in Sources */,
 				878A77F327ED6D66008733C6 /* AppDelegate.swift in Sources */,
 				878A77F527ED6D66008733C6 /* SceneDelegate.swift in Sources */,
 			);
